@@ -16,10 +16,15 @@ interface CardsProps {
 }
 
 export function CardList({ cards }: CardsProps): JSX.Element {
+  const { isOpen, onOpen, onClose } = useDisclosure({defaultIsOpen: false});
+  const [selectedUrl, setSelectedUrl] = useState(null);
+
   console.log(cards)
   // TODO MODAL USEDISCLOSURE
   function viewImage(url: any) {
     console.log(url)
+    setSelectedUrl(url);
+    onOpen()
   }
 
   // TODO SELECTED IMAGE URL STATE
@@ -37,7 +42,14 @@ export function CardList({ cards }: CardsProps): JSX.Element {
           ))
         }
       </Grid>
-      {/* TODO MODALVIEWIMAGE */}
+      {/* TODO MODALVIEWIMAGE */
+        isOpen &&
+          <ModalViewImage
+            isOpen={isOpen}
+            imgUrl={selectedUrl}
+            onClose={onClose}
+          />
+      }
     </>
   );
 }
