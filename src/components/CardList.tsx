@@ -19,10 +19,8 @@ export function CardList({ cards }: CardsProps): JSX.Element {
   const { isOpen, onOpen, onClose } = useDisclosure({defaultIsOpen: false});
   const [selectedUrl, setSelectedUrl] = useState(null);
 
-  console.log(cards)
   // TODO MODAL USEDISCLOSURE
   function viewImage(url: any) {
-    console.log(url)
     setSelectedUrl(url);
     onOpen()
   }

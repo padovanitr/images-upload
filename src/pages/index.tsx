@@ -29,8 +29,6 @@ export default function Home(): JSX.Element {
       },
     });
 
-    console.log('data', data)
-
     return data;
   }
 
