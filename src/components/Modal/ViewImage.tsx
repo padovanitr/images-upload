@@ -27,17 +27,45 @@ export function ModalViewImage({
     <>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
-          <ModalCloseButton />
-          <ModalBody>
-            <Image src={imgUrl}/>
+        <ModalContent
+          maxWidth="900px"
+          maxHeight="600px"
+        >
+          <ModalBody
+            padding="0"
+          >
+            <Image
+              src={imgUrl}
+            />
             <Link href={imgUrl} isExternal/>
           </ModalBody>
-          <ModalFooter>
-            <Button colorScheme='blue' mr={3} onClick={onClose}>
-              Close
+          <ModalFooter
+            background="#353431"
+            height="40px"
+            borderRadius="0 0 6px 6px"
+            display="flex"
+            justifyContent="flex-start"
+            p="8px 10px"
+          >
+            <Button
+              as="a"
+              href={imgUrl}
+              mr={3}
+              variant='outline'
+              target='_blank'
+              background="none"
+              height="fit-content"
+              padding="0"
+              color="#ccc"
+              fontWeight="400"
+              fontSize="14px"
+              _hover={{
+                background: "none"
+              }}
+
+            >
+              Abrir original
             </Button>
-            <Button variant='ghost'>Secondary Action</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
